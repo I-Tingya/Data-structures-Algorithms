@@ -8,11 +8,10 @@ class Insertion():
 
     def sort(self):
         for i in range(len(self.arr)):
-            next_idx = i
-            for j in range(i):
-                if self.arr[next_idx] < self.arr[j]:
-                    temp = self.arr[next_idx]
-                    self.arr[j+1:next_idx+1] = self.arr[j:next_idx]
+            for j in range(i, 0, -1):
+                if self.arr[j] < self.arr[j-1]:
+                    temp = self.arr[j-1]
+                    self.arr[j-1] = self.arr[j]
                     self.arr[j] = temp
 
     def print_arr(self):
