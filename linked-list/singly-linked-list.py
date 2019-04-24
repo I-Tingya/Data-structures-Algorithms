@@ -21,12 +21,19 @@ class LinkedList():
             temp.next_node = Node(node_val)
 
     def _remove_last(self):
-        temp = self.head
-        while(temp.next_node):
-            prev = temp
-            temp = temp.next_node
-        del temp
-        prev.next_node = None
+        if self.head.next_node:
+            temp = self.head
+            while(temp.next_node):
+                prev = temp
+                temp = temp.next_node
+            last_element = temp.data
+            prev.next_node = None
+            del temp
+            return last_element
+        elif self.head.next_node is None:
+            last_element = self.head.data
+            self.head.data = None
+            return last_element
 
     def _remove_first(self):
         if self.head:
@@ -47,7 +54,7 @@ class LinkedList():
         if self.head:
             max_node = self.head
             temp = self.head
-            while(temp.next_node):
+            while(temp):
                 if temp.data > max_node.data:
                     max_node = temp
                 temp = temp.next_node
@@ -71,7 +78,7 @@ if __name__ == '__main__':
     ll._print_list()
     print('\nminimum value in the list is: ', ll._find_min())
     print('maximum value in the list is: ', ll._find_max())
-    ll._remove_last()
+    print('removed last element: ', ll._remove_last())
     print('list after removing last element')
     ll._print_list()
     ll._remove_first()
