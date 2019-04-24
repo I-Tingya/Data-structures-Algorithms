@@ -37,8 +37,13 @@ class LinkedList():
 
     def _remove_first(self):
         if self.head:
+            first_element = self.head.data
             temp = self.head.next_node
+            del self.head
             self.head = temp
+            return first_element
+        else:
+            return None
 
     def _find_min(self) -> int:
         if self.head:
