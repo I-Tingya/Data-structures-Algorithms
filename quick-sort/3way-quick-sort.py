@@ -1,6 +1,6 @@
 
 class ThreeWayQuickSort():
-    """This has order of growth O(XXX)"""
+    """This handle duplicate keys which is an issue with quick sort"""
 
     def __init__(self, arr):
         self.arr = arr
