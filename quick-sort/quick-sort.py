@@ -36,7 +36,7 @@ class QuickSort():
         if low >= high:
             return
         j = self.partition(low, high)
-        self.quick_sort(low, j-1)
+        self.quick_sort(low, j)
         self.quick_sort(j+1, high)
 
     def print_arr(self):
@@ -45,6 +45,8 @@ class QuickSort():
 
 if __name__ == '__main__':
     arr = np.random.randint(0, 100, 10)
+    # np.random.shuffle(arr): this is required to avoid
+    # quadratic worst case if given array is ordered
     qs = QuickSort(arr)
     print('original array is:\n', qs.print_arr())
     qs.quick_sort(0, len(arr))
