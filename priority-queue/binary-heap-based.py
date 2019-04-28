@@ -1,4 +1,4 @@
-class BinaryHeap():
+class BinaryHeapPQ():
     def __init__(self):
         self.arr = [None]
         self.N = 0
@@ -43,7 +43,7 @@ class BinaryHeap():
 
 
 if __name__ == '__main__':
-    bh = BinaryHeap()
+    bh = BinaryHeapPQ()
     bh.insert(11)
     bh.insert(33)
     bh.insert(29)
