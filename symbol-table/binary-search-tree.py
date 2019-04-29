@@ -43,6 +43,26 @@ class BinarySearchTree():
             else:
                 p.left = Node(key, val)
 
+    def find_min(self):
+        x = self.root
+        min_ = x.key
+        x = x.left
+        while x is not None:
+            if x.key < min_:
+                min_ = x.key
+                x = x.left
+        return min_
+
+    def find_max(self):
+        x = self.root
+        max_ = x.key
+        x = x.right
+        while x is not None:
+            if x.key > max_:
+                max_ = x.key
+                x = x.right
+        return max_
+
     def print_symbol_table(self, node=None):
         if node is None:
             node = self.root
@@ -61,5 +81,7 @@ if __name__ == '__main__':
     bst.put('Umang', 20)
     bst.put('Vaibhav', 30)
     bst.put('Omkar', 40)
-    print('Omkar\'s score is: ', bst.get('Omkar'))
     bst.print_symbol_table()
+    print('Omkar\'s score is: ', bst.get('Omkar'))
+    print('Minimum key is: ', bst.find_min())
+    print('Maximum key is: ', bst.find_max())
