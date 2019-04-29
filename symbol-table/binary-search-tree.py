@@ -84,6 +84,26 @@ class BinarySearchTree():
         else:
             return node
 
+    def find_ceil(self, key):
+        x = self.ceil_(self.root, key)
+        if x is None:
+            return None
+        else:
+            return x.key
+
+    def ceil_(self, node, key):
+        if node is None:
+            return None
+        if node.key == key:
+            return node
+        if key > node.key:
+            return self.ceil_(node.right, key)
+        x = self.ceil_(node.left, key)
+        if x is not None:
+            return x
+        else:
+            return node
+
     def print_symbol_table(self, node=None):
         if node is None:
             node = self.root
@@ -108,3 +128,5 @@ if __name__ == '__main__':
     print('Maximum key is:', bst.find_max())
     print('Finding floor key for P:', bst.find_floor('P'))
     print('Finding floor key for K:', bst.find_floor('K'))
+    print('Finding ceil key for A:', bst.find_ceil('A'))
+    print('Finding ceil key for R:', bst.find_ceil('R'))
