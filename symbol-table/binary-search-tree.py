@@ -131,6 +131,18 @@ class BinarySearchTree():
         if node.right is not None:
             self.print_symbol_table(node=node.right)
 
+    def print_keys(self):
+        self.key_arr = []
+        self.inorder(self.root)
+        return self.key_arr
+
+    def inorder(self, node):
+        if node is None:
+            return
+        self.inorder(node.left)
+        self.key_arr.append(node.key)
+        self.inorder(node.right)
+
 
 if __name__ == '__main__':
     bst = BinarySearchTree()
@@ -140,6 +152,7 @@ if __name__ == '__main__':
     bst.put_node('Omkar', 40)
     bst.put_node('Bakulesh', 40)
     bst.print_symbol_table()
+    print('printing keys:\n', bst.print_keys())
     print('Size of tree is:', bst.print_size())
     print('Rank of key Omkar is:', bst.print_rank('Omkar'))
     print('Rank of key Pratik is:', bst.print_rank('Pratik'))
